@@ -1,6 +1,5 @@
 import sys
-import logging
-logger = logging.getLogger(__name__)
+from src.logger import logging
 
 class CustomException(Exception):
     def __init__(self,error_message,error_detail:sys):
@@ -21,13 +20,4 @@ def error_message_detail(error,error_detail:sys):
     )
     return error_message
 
-
-
-if __name__ == '__main__' :
-    try:
-        a = 1/0
-        print(a)
-    except Exception as exe:
-        logging.info("Zero Division Error.")
-        raise CustomException(exe,sys)
 
